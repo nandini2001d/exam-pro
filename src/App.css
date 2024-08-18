@@ -45,3 +45,32 @@
   margin: 0;
   font-weight: bold;
 }
+
+.light-theme{
+
+  --background-color:white;
+  --text-color:black;
+  --box-shadow-color:gray;
+  background-color: white;
+  --btn-hover:rgb(62, 60, 60);
+ 
+ 
+}
+.dark-theme{
+  --background-color:black;
+  --text-color:white;
+  --box-shadow-color:rgb(255, 255, 255);
+  background-color: black;
+  --btn-hover:rgb(225, 217, 217);
+  
+}
+
+button.btn.mt-4.main-btn{
+  color: var(--background-color);
+  background-color: var(--text-color);
+  font-weight: bold;
+  box-shadow: var(--box-shadow-color);
+}
+button.btn.mt-4.main-btn:hover{
+   background-color: var(--btn-hover);
+}

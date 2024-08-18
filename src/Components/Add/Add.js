@@ -63,14 +63,14 @@ export default function Add() {
 
       <div className="container mt-5">
         <div className="row mt-5">
-          <div className="col-12 col-sm-8 offset-sm-2 p-4"  style={{boxShadow:"20px 20px 200px gray",marginTop:"100px"}}>
+          <div className="col-12 col-sm-8 offset-sm-2 p-4"  style={{boxShadow:"20px 20px 200px gray",marginTop:"100px",backgroundColor:"var(--background-color)"}}>
             <form onSubmit={storedata} >
-            <h5 className="text-center mb-4 bb-1-dark" style={{fontWeight:"bold"}} ><BiPlus/> Add Result</h5>
+            <h5 className="text-center mb-4 bb-1-dark" style={{fontWeight:"bold",color:"var(--text-color)"}} ><BiPlus/> Add Result</h5>
               <div className="row">
                 <div className="col-md-3 col-4">
                   <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">
-                     <CgTrophy/>Score{" "}
+                    <label for="exampleInputPassword1" class="form-label text-primary">
+                     <CgTrophy/> Score{" "}
                     </label>
                     <input
                       type="number"
@@ -88,7 +88,7 @@ export default function Add() {
                       for="exampleInputPassword1"
                       class="form-label text-warning"
                     >
-                     <CiLight/>Accuracy{" "}
+                     <CiLight/> Accuracy{" "}
                     </label>
                     <input
                       type="number"
@@ -106,7 +106,7 @@ export default function Add() {
                       for="exampleInputPassword1"
                       class="form-label text-info"
                     >
-                     <PiNotepadLight/>Attempt{" "}
+                     <PiNotepadLight/> Attempt{" "}
                     </label>
                     <input
                       type="number"
@@ -124,7 +124,7 @@ export default function Add() {
                       for="exampleInputPassword1"
                       class="form-label text-success"
                     >
-                    <GrStatusGood />Correct{" "}
+                    <GrStatusGood /> Correct{" "}
                     </label>
                     <input
                       type="number"
@@ -142,7 +142,7 @@ export default function Add() {
                       for="exampleInputPassword1"
                       class="form-label text-danger"
                     >
-                      <RxCross2/>Incorrect{" "}
+                      <RxCross2/> Incorrect{" "}
                     </label>
                     <input
                       type="number"
@@ -160,7 +160,7 @@ export default function Add() {
                       for="exampleInputPassword1"
                       class="form-label text-secondary"
                     >
-                      <FaRegQuestionCircle/>Unattemt{" "}
+                      <FaRegQuestionCircle/> Unattemt{" "}
                     </label>
                     <input
                       type="number"
@@ -174,10 +174,11 @@ export default function Add() {
                 </div>
                 <div className="col-md-3 col-6">
                   <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">
-                    <PiQuestionFill/>Total que.
+                    <label for="exampleInputPassword1" class="form-label" style={{color:"var(--text-color)"}}>
+                    <PiQuestionFill/> Total que.
                     </label>
                     <input
+                     style={{backgroundColor:"var(--background-color)",color:"var(--text-color)"}}
                       type="number"
                       class="form-control"
                       id="exampleInputPassword1"
@@ -188,10 +189,11 @@ export default function Add() {
                 </div>
                 <div className="col-md-3 col-6">
                   <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">
-                    <FaTrophy />Total score
+                    <label for="exampleInputPassword1" class="form-label" style={{color:"var(--text-color)"}}>
+                    <FaTrophy /> Total score
                     </label>
                     <input
+                    style={{backgroundColor:"var(--background-color)",color:"var(--text-color)"}}
                       type="number"
                       class="form-control"
                       id="exampleInputPassword1"
@@ -200,8 +202,10 @@ export default function Add() {
                     />
                   </div>
                 </div>
-                <button type="submit" className="btn btn-dark text-white mt-4"
-                style={{fontWeight:"bold"}}><BiPlus/> Add</button>
+              
+                <button type="submit" className="btn mt-4 main-btn"
+                ><BiPlus/> Add</button>
+               
               </div>
             </form>
           </div>

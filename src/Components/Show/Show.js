@@ -49,14 +49,14 @@ export default function Show() {
 
       <div className="container-fluid text-center" style={{marginTop:"100px"}}>
         <div className="d-flex mt-3 mb-4 ">
-              <div className="card p-1">
+              <div className="card p-1" style={{backgroundColor:"var(--background-color)",border:"1px solid var(--text-color)"}}>
                  
-                   <h6 style={{fontWeight:"bold"}}> <PiQuestionFill/> Total que.=100</h6>
+                   <h6 style={{fontWeight:"bold",color:"var(--text-color)"}}> <PiQuestionFill/> Total que.=100</h6>
                  
               </div>
-              <div className="card mx-2 p-1">
+              <div className="card mx-2 p-1"style={{backgroundColor:"var(--background-color)",border:"1px solid var(--text-color)"}}>
                 
-                   <h6 style={{fontWeight:"bold"}}><FaTrophy/> Total score=200</h6>
+                   <h6 style={{fontWeight:"bold",color:"var(--text-color)"}}><FaTrophy/> Total score=200</h6>
             
               </div>
         </div>
@@ -65,7 +65,7 @@ export default function Show() {
             <table class="table">
               <thead>
                 <tr>
-                 <th scope="col">Sr No.</th>
+                 <th scope="col"style={{backgroundColor:"var(--background-color)",color:"var(--text-color)"}}>Sr No.</th>
                   <th scope="col" className="bg-primary text-white"><CiTrophy/> Sc.</th>
 
                   <th scope="col-2" className="bg-warning text-white"><CiLight/> Ac.</th>
@@ -85,13 +85,13 @@ export default function Show() {
          {
           data.map((value,id)=>
           <tr>
-             <th>{id+1}</th>
+             <th style={{backgroundColor:"var(--background-color)",color:"var(--text-color)"}}>{id+1}</th>
             <td className="text-white bg-primary">{value.score}</td>
-      <td className="text-warning">{value.accuracy}</td>
+      <td className="text-warning" style={{backgroundColor:"var(--background-color)"}}>{value.accuracy}</td>
       <td className="text-white bg-info">{value.attempted}</td>
       <td className="text-white bg-success">{value.correct}</td>
       <td className="text-white bg-danger">{value.incorrect}</td>
-      <td className="text-secondary">{value.unattemted}</td>
+      <td className="text-secondary" style={{backgroundColor:"var(--background-color)"}}>{value.unattemted}</td>
             </tr>
           )
          }

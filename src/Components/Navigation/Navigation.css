@@ -1,3 +1,6 @@
 a.active{
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid var(--text-color);
+}
+a.nav-link{
+    color: var(--text-color);
 }
