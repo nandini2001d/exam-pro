@@ -63,24 +63,10 @@ export default function Add() {
 
       <div className="container mt-5">
         <div className="row mt-5">
-          <div className="col-12 col-sm-8 offset-sm-2 p-4"  style={{boxShadow:"20px 20px 200px gray",marginTop:"130px"}}>
+          <div className="col-12 col-sm-8 offset-sm-2 p-4"  style={{boxShadow:"20px 20px 200px gray",marginTop:"100px"}}>
             <form onSubmit={storedata} >
             <h5 className="text-center mb-4 bb-1-dark" style={{fontWeight:"bold"}} ><BiPlus/> Add Result</h5>
               <div className="row">
-                <div className="col-md-3 col-4">
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">
-                    <FaTrophy />Total Score
-                    </label>
-                    <input
-                      type="number"
-                      class="form-control"
-                      id="exampleInputPassword1"
-                      value={200}
-                      readOnly
-                    />
-                  </div>
-                </div>
                 <div className="col-md-3 col-4">
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">
@@ -92,6 +78,7 @@ export default function Add() {
                       onChange={(e)=>{setscore(e.target.value)}}
                       value={score}
                       name="score"
+                      required
                     />
                   </div>
                 </div>
@@ -109,6 +96,7 @@ export default function Add() {
                       onChange={(e)=>{setAccuracy(e.target.value)}}
                       value={accuracy}
                       name="accuracy"
+                      required
                     />
                   </div>
                 </div>
@@ -118,7 +106,7 @@ export default function Add() {
                       for="exampleInputPassword1"
                       class="form-label text-info"
                     >
-                     <PiNotepadLight/>Attempted{" "}
+                     <PiNotepadLight/>Attempt{" "}
                     </label>
                     <input
                       type="number"
@@ -126,6 +114,7 @@ export default function Add() {
                       onChange={(e)=>{setAttemted(e.target.value)}}
                       value={attempted}
                       name="attempted"
+                      required
                     />
                   </div>
                 </div>
@@ -143,6 +132,7 @@ export default function Add() {
                       onChange={(e)=>{setCorrect(e.target.value)}}
                       value={correct}
                       name="correct"
+                      required
                     />
                   </div>
                 </div>
@@ -160,6 +150,7 @@ export default function Add() {
                       onChange={(e)=>{setInCorrect(e.target.value)}}
                       value={incorrect}
                       name="incorrect"
+                      required
                     />
                   </div>
                 </div>
@@ -169,7 +160,7 @@ export default function Add() {
                       for="exampleInputPassword1"
                       class="form-label text-secondary"
                     >
-                      <FaRegQuestionCircle/>Unattemted{" "}
+                      <FaRegQuestionCircle/>Unattemt{" "}
                     </label>
                     <input
                       type="number"
@@ -181,10 +172,10 @@ export default function Add() {
                     />
                   </div>
                 </div>
-                <div className="col-md-3 col-4">
+                <div className="col-md-3 col-6">
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">
-                    <PiQuestionFill/> Total Q.
+                    <PiQuestionFill/>Total que.
                     </label>
                     <input
                       type="number"
@@ -192,6 +183,20 @@ export default function Add() {
                       id="exampleInputPassword1"
                       readOnly
                       value={100}
+                    />
+                  </div>
+                </div>
+                <div className="col-md-3 col-6">
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">
+                    <FaTrophy />Total score
+                    </label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="exampleInputPassword1"
+                      value={200}
+                      readOnly
                     />
                   </div>
                 </div>

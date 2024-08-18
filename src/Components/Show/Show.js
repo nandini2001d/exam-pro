@@ -48,15 +48,15 @@ export default function Show() {
       <Navigation />
 
       <div className="container-fluid text-center" style={{marginTop:"100px"}}>
-        <div className="d-flex mt-3 mb-5 ">
+        <div className="d-flex mt-3 mb-4 ">
               <div className="card p-1">
                  
-                   <h6 style={{fontWeight:"bold"}}> <PiQuestionFill/> Total Questions : 100</h6>
+                   <h6 style={{fontWeight:"bold"}}> <PiQuestionFill/> Total que.=100</h6>
                  
               </div>
               <div className="card mx-2 p-1">
                 
-                   <h6 style={{fontWeight:"bold"}}><FaTrophy/> Total Score : 200</h6>
+                   <h6 style={{fontWeight:"bold"}}><FaTrophy/> Total score=200</h6>
             
               </div>
         </div>
