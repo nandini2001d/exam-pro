@@ -62,7 +62,7 @@ export default function Show() {
         </div>
         <div className="row">
           <div className="col-12">
-            <table class="table">
+            <table className="table">
               <thead>
                 <tr>
                  <th scope="col"style={{backgroundColor:"var(--background-color)",color:"var(--text-color)"}}>Sr No.</th>

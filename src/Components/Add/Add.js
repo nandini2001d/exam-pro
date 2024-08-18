@@ -68,13 +68,13 @@ export default function Add() {
             <h5 className="text-center mb-4 bb-1-dark" style={{fontWeight:"bold",color:"var(--text-color)"}} ><BiPlus/> Add Result</h5>
               <div className="row">
                 <div className="col-md-3 col-4">
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label text-primary">
+                  <div className="mb-3">
+                    <label for="exampleInputPassword1" className="form-label text-primary">
                      <CgTrophy/> Score{" "}
                     </label>
                     <input
                       type="number"
-                      class="form-control bg-primary text-white"
+                      className="form-control bg-primary text-white"
                       onChange={(e)=>{setscore(e.target.value)}}
                       value={score}
                       name="score"
@@ -83,16 +83,16 @@ export default function Add() {
                   </div>
                 </div>
                 <div className="col-md-3 col-4">
-                  <div class="mb-3">
+                  <div className="mb-3">
                     <label
                       for="exampleInputPassword1"
-                      class="form-label text-warning"
+                      className="form-label text-warning"
                     >
                      <CiLight/> Accuracy{" "}
                     </label>
                     <input
                       type="number"
-                      class="form-control text-white bg-warning"
+                      className="form-control text-white bg-warning"
                       onChange={(e)=>{setAccuracy(e.target.value)}}
                       value={accuracy}
                       name="accuracy"
@@ -101,16 +101,16 @@ export default function Add() {
                   </div>
                 </div>
                 <div className="col-md-3 col-4">
-                  <div class="mb-3">
+                  <div className="mb-3">
                     <label
                       for="exampleInputPassword1"
-                      class="form-label text-info"
+                      className="form-label text-info"
                     >
                      <PiNotepadLight/> Attempt{" "}
                     </label>
                     <input
                       type="number"
-                      class="form-control text-white bg-info"
+                      className="form-control text-white bg-info"
                       onChange={(e)=>{setAttemted(e.target.value)}}
                       value={attempted}
                       name="attempted"
@@ -119,16 +119,16 @@ export default function Add() {
                   </div>
                 </div>
                 <div className="col-md-3 col-4">
-                  <div class="mb-3">
+                  <div className="mb-3">
                     <label
                       for="exampleInputPassword1"
-                      class="form-label text-success"
+                      className="form-label text-success"
                     >
                     <GrStatusGood /> Correct{" "}
                     </label>
                     <input
                       type="number"
-                      class="form-control text-white bg-success"
+                      className="form-control text-white bg-success"
                       onChange={(e)=>{setCorrect(e.target.value)}}
                       value={correct}
                       name="correct"
@@ -137,16 +137,16 @@ export default function Add() {
                   </div>
                 </div>
                 <div className="col-md-3 col-4">
-                  <div class="mb-3">
+                  <div className="mb-3">
                     <label
                       for="exampleInputPassword1"
-                      class="form-label text-danger"
+                      className="form-label text-danger"
                     >
                       <RxCross2/> Incorrect{" "}
                     </label>
                     <input
                       type="number"
-                      class="form-control bg-danger text-white"
+                      className="form-control bg-danger text-white"
                       onChange={(e)=>{setInCorrect(e.target.value)}}
                       value={incorrect}
                       name="incorrect"
@@ -155,16 +155,16 @@ export default function Add() {
                   </div>
                 </div>
                 <div className="col-md-3 col-4">
-                  <div class="mb-3">
+                  <div className="mb-3">
                     <label
                       for="exampleInputPassword1"
-                      class="form-label text-secondary"
+                      className="form-label text-secondary"
                     >
                       <FaRegQuestionCircle/> Unattemt{" "}
                     </label>
                     <input
                       type="number"
-                      class="form-control bg-secondary text-white"
+                      className="form-control bg-secondary text-white"
                       value={unattemted}
                       name="unattemted"
                       readOnly
@@ -173,14 +173,14 @@ export default function Add() {
                   </div>
                 </div>
                 <div className="col-md-3 col-6">
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label" style={{color:"var(--text-color)"}}>
+                  <div className="mb-3">
+                    <label for="exampleInputPassword1" className="form-label" style={{color:"var(--text-color)"}}>
                     <PiQuestionFill/> Total que.
                     </label>
                     <input
                      style={{backgroundColor:"var(--background-color)",color:"var(--text-color)"}}
                       type="number"
-                      class="form-control"
+                      className="form-control"
                       id="exampleInputPassword1"
                       readOnly
                       value={100}
@@ -188,14 +188,14 @@ export default function Add() {
                   </div>
                 </div>
                 <div className="col-md-3 col-6">
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label" style={{color:"var(--text-color)"}}>
+                  <div className="mb-3">
+                    <label for="exampleInputPassword1" className="form-label" style={{color:"var(--text-color)"}}>
                     <FaTrophy /> Total score
                     </label>
                     <input
                     style={{backgroundColor:"var(--background-color)",color:"var(--text-color)"}}
                       type="number"
-                      class="form-control"
+                      className="form-control"
                       id="exampleInputPassword1"
                       value={200}
                       readOnly

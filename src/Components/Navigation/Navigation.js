@@ -34,14 +34,14 @@ export default function Navigation() {
 
   return (
   <>
-<nav class="navbar navbar-expand-lg"
+<nav className="navbar navbar-expand-lg"
 style={{borderBottom:"1px solid var(--text-color)", backgroundColor:"var(--background-color)",
 boxShadow:"20px 20px 400px gray",position:"fixed",top:"0",right:"0",left:"0",zIndex:"1000"}}>
-  <div class="container-fluid">
-    <Link class="navbar-brand" to="#"><img src='/img/logo1.jpg' alt='logo' style={{height:"65px",width:"100%"}}/></Link>
+  <div className="container-fluid">
+    <Link className="navbar-brand" to="#"><img src='/img/logo1.jpg' alt='logo' style={{height:"65px",width:"100%"}}/></Link>
 
-    <div class="d-flex" id="navbarSupportedContent">
-    <form class="d-flex">
+    <div className="d-flex" id="navbarSupportedContent">
+    <form className="d-flex">
       {navi.map((value,id) => {
               return (
                
