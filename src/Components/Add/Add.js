@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navigation from "../Navigation/Navigation";
 import { useNavigate } from "react-router-dom";
 import app from "../../firebase";
-import {getDatabase,ref,set,push, get} from 'firebase/database'
+import { getDatabase, ref, set, push, get } from "firebase/database";
 import { toast } from "react-toastify";
 import { BiPlus } from "react-icons/bi";
 import { FaRegQuestionCircle, FaRegThumbsUp, FaTrophy } from "react-icons/fa";
@@ -13,47 +13,53 @@ import { CgTrophy } from "react-icons/cg";
 import { GrStatusGood } from "react-icons/gr";
 
 export default function Add() {
-    const [score,setscore]=useState('');
-    const [accuracy,setAccuracy]=useState('');
-    const [attempted,setAttemted]=useState('');
-    const [correct,setCorrect]=useState('');
-    const [incorrect,setInCorrect]=useState('');
-    const [unattemted,setUnattempted]=useState(100);
+  const [score, setscore] = useState("");
+  const [accuracy, setAccuracy] = useState("");
+  const [attempted, setAttemted] = useState("");
+  const [correct, setCorrect] = useState("");
+  const [incorrect, setInCorrect] = useState(0);
+  const [unattemted, setUnattempted] = useState(100);
 
-    const navigate=useNavigate();
+  const [showBtn, setShowBtn] = useState(true);
 
-    useEffect(()=>{
-         setUnattempted(100-attempted);
-    },[attempted]);
+  const navigate = useNavigate();
 
-   const storedata=async (e)=>{
-         e.preventDefault();
-         const db=getDatabase(app);
-         const refvalue=push(ref(db,'sonu/score'));
-        await set(refvalue,{
-              score:score,
-              accuracy:accuracy,
-              attempted:attempted,
-              correct:correct,
-              incorrect:incorrect,
-              unattemted:unattemted
-         }).then(()=>{
-            toast.success("Record added!",{
-                toastId:'sucess1'
-            });
-            setscore('');
-            setAccuracy('');
-            setInCorrect('');
-            setCorrect('');
-            setAttemted('');
-            setUnattempted(100);
-            navigate('/view');
-         }).catch((errer)=>{
-            toast.error("Somthing wetnts wrong!",{
-                toastId:'errer1'
-            });
-         })
-    }
+  useEffect(() => {
+    setUnattempted(100 - attempted);
+    setInCorrect(attempted - correct);
+  }, [attempted, correct]);
+
+  const storedata = async (e) => {
+    e.preventDefault();
+    setShowBtn(false);
+    const db = getDatabase(app);
+    const refvalue = push(ref(db, "sonu/score"));
+    await set(refvalue, {
+      score: score,
+      accuracy: accuracy,
+      attempted: attempted,
+      correct: correct,
+      incorrect: incorrect,
+      unattemted: unattemted,
+    })
+      .then(() => {
+        toast.success("Record added!", {
+          toastId: "sucess1",
+        });
+        setscore("");
+        setAccuracy("");
+        setInCorrect("");
+        setCorrect("");
+        setAttemted("");
+        setUnattempted(100);
+        navigate("/view");
+      })
+      .catch((errer) => {
+        toast.error("Somthing wetnts wrong!", {
+          toastId: "errer1",
+        });
+      });
+  };
 
   return (
     <>
@@ -63,19 +69,36 @@ export default function Add() {
 
       <div className="container mt-5">
         <div className="row mt-5">
-          <div className="col-12 col-sm-8 offset-sm-2 p-4"  style={{boxShadow:"20px 20px 200px gray",marginTop:"100px",backgroundColor:"var(--background-color)"}}>
-            <form onSubmit={storedata} >
-            <h5 className="text-center mb-4 bb-1-dark" style={{fontWeight:"bold",color:"var(--text-color)"}} ><BiPlus/> Add Result</h5>
+          <div
+            className="col-12 col-sm-8 offset-sm-2 p-4"
+            style={{
+              boxShadow: "20px 20px 200px gray",
+              marginTop: "100px",
+              backgroundColor: "var(--background-color)",
+            }}
+          >
+            <form onSubmit={storedata}>
+              <h5
+                className="text-center mb-4 bb-1-dark"
+                style={{ fontWeight: "bold", color: "var(--text-color)" }}
+              >
+                <BiPlus /> Add Result
+              </h5>
               <div className="row">
                 <div className="col-md-3 col-4">
                   <div className="mb-3">
-                    <label for="exampleInputPassword1" className="form-label text-primary">
-                     <CgTrophy/> Score{" "}
+                    <label
+                      for="exampleInputPassword1"
+                      className="form-label text-primary"
+                    >
+                      <CgTrophy /> Score{" "}
                     </label>
                     <input
                       type="number"
                       className="form-control bg-primary text-white"
-                      onChange={(e)=>{setscore(e.target.value)}}
+                      onChange={(e) => {
+                        setscore(e.target.value);
+                      }}
                       value={score}
                       name="score"
                       required
@@ -88,12 +111,14 @@ export default function Add() {
                       for="exampleInputPassword1"
                       className="form-label text-warning"
                     >
-                     <CiLight/> Accuracy{" "}
+                      <CiLight /> Accuracy{" "}
                     </label>
                     <input
                       type="number"
                       className="form-control text-white bg-warning"
-                      onChange={(e)=>{setAccuracy(e.target.value)}}
+                      onChange={(e) => {
+                        setAccuracy(e.target.value);
+                      }}
                       value={accuracy}
                       name="accuracy"
                       required
@@ -106,12 +131,14 @@ export default function Add() {
                       for="exampleInputPassword1"
                       className="form-label text-info"
                     >
-                     <PiNotepadLight/> Attempt{" "}
+                      <PiNotepadLight /> Attempt{" "}
                     </label>
                     <input
                       type="number"
                       className="form-control text-white bg-info"
-                      onChange={(e)=>{setAttemted(e.target.value)}}
+                      onChange={(e) => {
+                        setAttemted(e.target.value);
+                      }}
                       value={attempted}
                       name="attempted"
                       required
@@ -124,12 +151,14 @@ export default function Add() {
                       for="exampleInputPassword1"
                       className="form-label text-success"
                     >
-                    <GrStatusGood /> Correct{" "}
+                      <GrStatusGood /> Correct{" "}
                     </label>
                     <input
                       type="number"
                       className="form-control text-white bg-success"
-                      onChange={(e)=>{setCorrect(e.target.value)}}
+                      onChange={(e) => {
+                        setCorrect(e.target.value);
+                      }}
                       value={correct}
                       name="correct"
                       required
@@ -142,15 +171,15 @@ export default function Add() {
                       for="exampleInputPassword1"
                       className="form-label text-danger"
                     >
-                      <RxCross2/> Incorrect{" "}
+                      <RxCross2 /> Incorrect{" "}
                     </label>
                     <input
                       type="number"
                       className="form-control bg-danger text-white"
-                      onChange={(e)=>{setInCorrect(e.target.value)}}
+                      // onChange={(e)=>{setInCorrect(e.target.value)}}
                       value={incorrect}
                       name="incorrect"
-                      required
+                      readOnly
                     />
                   </div>
                 </div>
@@ -160,7 +189,7 @@ export default function Add() {
                       for="exampleInputPassword1"
                       className="form-label text-secondary"
                     >
-                      <FaRegQuestionCircle/> Unattemt{" "}
+                      <FaRegQuestionCircle /> Unattemt{" "}
                     </label>
                     <input
                       type="number"
@@ -168,17 +197,23 @@ export default function Add() {
                       value={unattemted}
                       name="unattemted"
                       readOnly
-                  
                     />
                   </div>
                 </div>
                 <div className="col-md-3 col-6">
                   <div className="mb-3">
-                    <label for="exampleInputPassword1" className="form-label" style={{color:"var(--text-color)"}}>
-                    <PiQuestionFill/> Total que.
+                    <label
+                      for="exampleInputPassword1"
+                      className="form-label"
+                      style={{ color: "var(--text-color)" }}
+                    >
+                      <PiQuestionFill /> Total que.
                     </label>
                     <input
-                     style={{backgroundColor:"var(--background-color)",color:"var(--text-color)"}}
+                      style={{
+                        backgroundColor: "var(--background-color)",
+                        color: "var(--text-color)",
+                      }}
                       type="number"
                       className="form-control"
                       id="exampleInputPassword1"
@@ -189,11 +224,18 @@ export default function Add() {
                 </div>
                 <div className="col-md-3 col-6">
                   <div className="mb-3">
-                    <label for="exampleInputPassword1" className="form-label" style={{color:"var(--text-color)"}}>
-                    <FaTrophy /> Total score
+                    <label
+                      for="exampleInputPassword1"
+                      className="form-label"
+                      style={{ color: "var(--text-color)" }}
+                    >
+                      <FaTrophy /> Total score
                     </label>
                     <input
-                    style={{backgroundColor:"var(--background-color)",color:"var(--text-color)"}}
+                      style={{
+                        backgroundColor: "var(--background-color)",
+                        color: "var(--text-color)",
+                      }}
                       type="number"
                       className="form-control"
                       id="exampleInputPassword1"
@@ -202,10 +244,14 @@ export default function Add() {
                     />
                   </div>
                 </div>
-              
-                <button type="submit" className="btn mt-4 main-btn"
-                ><BiPlus/> Add</button>
-               
+
+                {showBtn === true ? (
+                  <button type="submit" className="btn mt-4 main-btn">
+                    <BiPlus /> Add
+                  </button>
+                ) : (
+                  ""
+                )}
               </div>
             </form>
           </div>
