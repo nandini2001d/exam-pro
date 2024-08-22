@@ -59,9 +59,10 @@ export default function Add() {
         //   }
         // );
      
-         toast.success("Record added!", {
-           toastId: "sucess1",
-         });
+        //  toast.success("Record added!", {
+        //    toastId: "sucess1",
+        //  });
+        
         setscore("");
         setAccuracy("");
         setInCorrect("");
