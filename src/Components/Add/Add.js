@@ -23,15 +23,22 @@ export default function Add() {
   const [showBtn, setShowBtn] = useState(true);
 
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     setUnattempted(100 - attempted);
     setInCorrect(attempted - correct);
-  }, [attempted, correct]);
+  },[attempted, correct]);
 
   const storedata = async (e) => {
+
     e.preventDefault();
+    toast.promise(storedata,{
+      pending:"Please wait recored adding!"
+    },{
+      toastId:"pending1"
+    })
     setShowBtn(false);
+
     const db = getDatabase(app);
     const refvalue = push(ref(db, "sonu/score"));
     await set(refvalue, {
@@ -41,11 +48,20 @@ export default function Add() {
       correct: correct,
       incorrect: incorrect,
       unattemted: unattemted,
-    })
-      .then(() => {
-        toast.success("Record added!", {
-          toastId: "sucess1",
-        });
+    }).then(() => {
+        // toast.promise(
+        //   storedata,
+        //   {
+        //     pending: "Adding record",
+        //   },
+        //   {
+        //     toastId: "sucess1",
+        //   }
+        // );
+     
+         toast.success("Record added!", {
+           toastId: "sucess1",
+         });
         setscore("");
         setAccuracy("");
         setInCorrect("");
@@ -60,6 +76,7 @@ export default function Add() {
         });
       });
   };
+
 
   return (
     <>
