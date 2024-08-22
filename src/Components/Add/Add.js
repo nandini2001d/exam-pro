@@ -33,7 +33,7 @@ export default function Add() {
 
     e.preventDefault();
     toast.promise(storedata,{
-      pending:"Please wait recored adding!"
+      pending:"Please wait recored is adding!"
     },{
       toastId:"pending1"
     })
@@ -62,7 +62,7 @@ export default function Add() {
         //  toast.success("Record added!", {
         //    toastId: "sucess1",
         //  });
-        
+
         setscore("");
         setAccuracy("");
         setInCorrect("");
