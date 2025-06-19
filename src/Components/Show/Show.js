@@ -8,6 +8,7 @@ import { PiNotepadLight, PiQuestionFill } from "react-icons/pi";
 import { RxCross2 } from "react-icons/rx";
 import { FaRegQuestionCircle, FaRegThumbsUp, FaTrophy } from "react-icons/fa";
 import { GrStatusGood } from "react-icons/gr";
+import { BiCalendar } from "react-icons/bi";
 
 export default function Show() {
   const [data, setData] = useState([]);
@@ -114,8 +115,8 @@ export default function Show() {
                   <th scope="col" className="bg-secondary text-white">
                     <FaRegQuestionCircle /> Unat.
                   </th>
-                  <th scope="col-2" className="bg-secondary text-white">
-                    <FaRegQuestionCircle /> Da.
+                  <th scope="col" className=" text-white" style={{backgroundColor:"purple"}}>
+                   <BiCalendar /> Date
                   </th>
                 </tr>
               </thead>
@@ -142,12 +143,12 @@ export default function Show() {
                     <td className="text-white bg-success">{value.correct}</td>
                     <td className="text-white bg-danger">{value.incorrect}</td>
                     <td
-                      className="text-secondary"
-                      style={{ backgroundColor: "var(--background-color)" }}
+                      className=""
+                      style={{ backgroundColor: "var(--background-color)" ,color: "var(--text-color)" }}
                     >
                       {value.unattemted}
                     </td>
-                    <td className="text-black bg-info" style={{fontSize:"10px"}}>{value.timestamp}</td>
+                    <td className="text-white" style={{fontSize:"10px", backgroundColor:"purple"}}>{value.timestamp}</td>
                   </tr>
                 ))}
               </tbody>
