@@ -13,12 +13,18 @@ import { CgTrophy } from "react-icons/cg";
 import { GrStatusGood } from "react-icons/gr";
 
 export default function Add() {
+
+  //const t=Date.now();
+  const today = new Date();
+  //const datetime=new Date().toISOString();
+  const dateonly=today.toISOString().split("T")[0];
   const [score, setscore] = useState("");
   const [accuracy, setAccuracy] = useState("");
   const [attempted, setAttemted] = useState("");
   const [correct, setCorrect] = useState("");
   const [incorrect, setInCorrect] = useState(0);
   const [unattemted, setUnattempted] = useState(100);
+  const [timestamp,setTimestamp]=useState(dateonly);
 
   const [showBtn, setShowBtn] = useState(true);
 
@@ -49,6 +55,7 @@ export default function Add() {
       correct: correct,
       incorrect: incorrect,
       unattemted: unattemted,
+      timestamp:timestamp
     }).then(() => {
         // toast.promise(
         //   storedata,
@@ -103,6 +110,7 @@ export default function Add() {
               >
                 <BiPlus /> Add Result
               </h5>
+              <p hidden>{timestamp}</p>
               <div className="row">
                 <div className="col-md-3 col-4">
                   <div className="mb-3">
@@ -262,6 +270,9 @@ export default function Add() {
                       readOnly
                     />
                   </div>
+
+                  
+                  
                 </div>
 
                 {showBtn === true ? (

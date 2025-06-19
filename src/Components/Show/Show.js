@@ -114,6 +114,9 @@ export default function Show() {
                   <th scope="col" className="bg-secondary text-white">
                     <FaRegQuestionCircle /> Unat.
                   </th>
+                  <th scope="col-2" className="bg-secondary text-white">
+                    <FaRegQuestionCircle /> Da.
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -144,6 +147,7 @@ export default function Show() {
                     >
                       {value.unattemted}
                     </td>
+                    <td className="text-black bg-info" style={{fontSize:"10px"}}>{value.timestamp}</td>
                   </tr>
                 ))}
               </tbody>
