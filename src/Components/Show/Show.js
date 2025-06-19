@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navigation from "../Navigation/Navigation";
-import { get, getDatabase, ref } from "firebase/database";
+import { get, getDatabase, orderByChild, query, ref } from "firebase/database";
 import app from "../../firebase";
 import { toast } from "react-toastify";
 import { CiLight, CiTrophy } from "react-icons/ci";
@@ -11,8 +11,10 @@ import { GrStatusGood } from "react-icons/gr";
 
 export default function Show() {
   const [data, setData] = useState([]);
+    const total=data.length; // this is thw way we can used the the fech the data by reverce order and number also 
+   // {data.slice().reverse().map((value, id) => (
 
-  useEffect(() => {
+    useEffect(() => {
     toast.promise(
       getAllData(),
       {
@@ -28,6 +30,7 @@ export default function Show() {
   const getAllData = async () => {
     const db = getDatabase(app);
     const refValue = ref(db, "sonu/score");
+    //const q= query(refValue,orderByChild(''))
     const snaPic = await get(refValue);
     if (snaPic.exists()) {
       const mayData = snaPic.val();
@@ -114,7 +117,8 @@ export default function Show() {
                 </tr>
               </thead>
               <tbody>
-                {data.map((value, id) => (
+             
+                {data.slice().reverse().map((value, id) => (
                   <tr>
                     <th
                       style={{
@@ -122,7 +126,7 @@ export default function Show() {
                         color: "var(--text-color)",
                       }}
                     >
-                      {id + 1}
+                      {total - id}
                     </th>
                     <td className="text-white bg-primary">{value.score}</td>
                     <td

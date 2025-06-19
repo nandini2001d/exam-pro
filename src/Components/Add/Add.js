@@ -42,6 +42,7 @@ export default function Add() {
     const db = getDatabase(app);
     const refvalue = push(ref(db, "sonu/score"));
     await set(refvalue, {
+  
       score: score,
       accuracy: accuracy,
       attempted: attempted,
